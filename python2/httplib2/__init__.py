@@ -898,7 +898,7 @@ class HTTPConnectionWithTimeout(httplib.HTTPConnection):
                     if use_proxy:
                         print "proxy: %s ************" % str((proxy_host, proxy_port, proxy_rdns, proxy_user, proxy_pass))
 
-                self.sock.connect((self.host, self.port) + sa[2:])
+                self.sock.connect((self.host, self.port) + tuple(sa)[2:])
             except socket.error, msg:
                 if self.debuglevel > 0:
                     print "connect fail: (%s, %s)" % (self.host, self.port)
